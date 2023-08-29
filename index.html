@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body{
+            background-color: rgb(255, 249, 240);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .h1{
+            text-align: center;
+            color:rgb(79, 151, 151);
+        }
+        table{
+            border-radius:8px;
+        }
+        td{
+            border:none;
+            padding: 5px;
+        }
+        #button{
+            border:none;
+            border-radius:5px;
+            padding:5px;
+            width:200px;
+            background-color: rgb(195, 218, 219);
+        }
+        #result{
+            margin-top:25px;
+            padding:20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body align="center">
+    <div class="h1">
+        <h1> BMI Calculator </h1>        
+    </div>
+    <div class="form">
+        <table  border="1" align="center">
+            <tr>
+                <td> Age </td>
+                <td><input type="text" value="" id="age"></td>
+            </tr>
+            <tr>
+                <td> Gender </td>
+                <td> <input type="radio" name="gen"> Male <input type="radio" name="gen"> Female </td>
+            </tr>
+            <tr>
+                <td> Height </td>
+                <td><input type="text" value="" id="height" placeholder="Height in cm"></td>
+            </tr>
+            <tr>
+                <td> Weight </td>
+                <td><input type="text" value="" id="weight" placeholder="Weight in kg"> </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                 <input type="submit" value="Calculate" onclick="bmi()" id="button">        
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="result">
+    </div>
+    <script>
+        function bmi(){
+            var h = document.getElementById("height").value / 100;
+            var H =h*h;
+            var W = document.getElementById("weight").value;
+            var bmi=W/H;
+            if(bmi<=18.5){
+            document.querySelector("#result").innerHTML="UNDER WEIGHT";
+            }
+            else if(bmi>18.5 && bmi<=26.1){
+                document.querySelector("#result").innerHTML="NORMAL WEIGHT";
+            }
+            else if(bmi>26.5 && bmi<30){
+                document.querySelector("#result").innerHTML="OVER WEIGHT";
+            }
+            else if(bmi>=31) {
+                document.querySelector("#result").innerHTML="OBESE";
+            }
+            else{
+            }
+        }
+    </script>
+</body>
+
+</html>
